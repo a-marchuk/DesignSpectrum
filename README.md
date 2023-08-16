@@ -3,7 +3,7 @@
 **Hi, this is the README file for my furniture store project developed as part of PET (Personal Experience Project).**
 
 ## Overview
-Our project is aimed at creating a web application for a furniture store where users can find, browse, and buy different types of furniture.
+My project is aimed at creating a web application for a furniture store where users can find, browse, and buy different types of furniture.
 
 ## Functionalities
 **Product Catalog:** Separate sections for different types of furniture with images, descriptions, and prices.
