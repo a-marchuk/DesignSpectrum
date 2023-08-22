@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinapp.R
+
 
 class ItemsAdapter(var items: List<Item>, var context: Context) : RecyclerView.Adapter<ItemsAdapter.MyViewHolder>(){
     class MyViewHolder(view: View): RecyclerView.ViewHolder(view){

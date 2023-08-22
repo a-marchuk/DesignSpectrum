@@ -3,7 +3,7 @@ package com.example.designspectrum
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.example.kotlinapp.R
+
 
 class ItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
