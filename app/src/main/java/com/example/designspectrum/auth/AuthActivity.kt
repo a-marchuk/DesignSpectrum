@@ -1,4 +1,4 @@
-package com.example.designspectrum
+package com.example.designspectrum.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.designspectrum.data.DbHelper
+import com.example.designspectrum.ui.ItemsActivity
+import com.example.designspectrum.MainActivity
+import com.example.designspectrum.R
 
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

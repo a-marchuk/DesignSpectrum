@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#e2a600"
-    tools:context=".ItemsActivity">
+    tools:context=".ui.ItemsActivity">
 
     <TextView
         android:id="@+id/main_label"

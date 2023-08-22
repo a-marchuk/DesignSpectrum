@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+
+        <item name="buttonStyle">@style/ButtonStyle</item>
+
+        <item name="editTextStyle">@style/EditTextStyle</item>
+
+    </style>
+
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/colorSecondary</item>
+        <item name="android:textColor">@color/colorText</item>
+        <!-- Додайте інші атрибути для кнопок -->
+    </style>
+
+    <!-- Стиль для текстових полів -->
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@color/colorSecondary</item>
+        <item name="android:textColor">@color/colorText</item>
+        <!-- Додайте інші атрибути для текстових полів -->
+    </style>
+
+</resources>

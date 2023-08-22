@@ -1,4 +1,4 @@
-package com.example.designspectrum
+package com.example.designspectrum.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.designspectrum.ui.ItemActivity
+import com.example.designspectrum.R
+import com.example.designspectrum.data.Item
 
 
 class ItemsAdapter(var items: List<Item>, var context: Context) : RecyclerView.Adapter<ItemsAdapter.MyViewHolder>(){

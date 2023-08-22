@@ -1,8 +1,9 @@
-package com.example.designspectrum
+package com.example.designspectrum.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.designspectrum.R
 
 
 class ItemActivity : AppCompatActivity() {

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="#e2a600"
     android:layout_height="match_parent"
-    tools:context=".ItemActivity">
+    tools:context=".ui.ItemActivity">
 
     <TextView
         android:id="@+id/item_list_title_one"

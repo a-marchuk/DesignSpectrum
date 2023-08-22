@@ -7,6 +7,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.designspectrum.auth.AuthActivity
+import com.example.designspectrum.data.DbHelper
+import com.example.designspectrum.data.User
 
 
 class MainActivity : AppCompatActivity() {
