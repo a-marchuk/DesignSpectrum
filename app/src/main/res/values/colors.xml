@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#C1FF70</color>
-    <color name="colorSecondary">#74cc00</color>
-    <color name="colorTertiary">#03DAC5</color>
-
-     <color name="colorBackground">#F5F5F5</color>
-     <color name="colorText">#000000</color>
+    <color name="colorPrimary">#FFF098</color>
+    <color name="colorSecondary">#FFB902</color>
+    <color name="colorTertiary">#A75810</color>
+    <color name="colorBackground">#F5F5F5</color>
+    <color name="colorText">#171410</color>
     <color name="white">#FFFFFF</color>
 
 
