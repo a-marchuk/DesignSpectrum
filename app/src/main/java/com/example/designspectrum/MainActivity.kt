@@ -60,9 +60,12 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val cUser = loginViewModel.getCurrentUser()
         if (cUser != null) {
-            // showSigned() // Це залишаю закоментованим, оскільки перехід відбувається у функції showSigned
             val userEmail = "Authorisation as ${cUser.email}"
-            Toast.makeText(this, "User not null$userEmail", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, userEmail, Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, ShoppActivity::class.java)
+            startActivity(intent)
+            finish()
         } else {
             Toast.makeText(this, "User null", Toast.LENGTH_SHORT).show()
         }
@@ -72,11 +75,9 @@ class MainActivity : AppCompatActivity() {
         val user = loginViewModel.getCurrentUser()
 
         if (user != null && user.isEmailVerified) {
-
-            // Перехід на активність ShoppActivity, оскільки користувач залогінений та email підтверджений
             val intent = Intent(this, ShoppActivity::class.java)
             startActivity(intent)
-            finish() // Закриваємо поточну активність, щоб не можна було повернутися назад
+            finish()
         } else {
             showToast("Check your email for verifying")
         }

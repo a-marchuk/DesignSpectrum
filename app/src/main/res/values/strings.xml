@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinApp</string>
+    <string name="app_name">Design Spectrum</string>
     <string name="enter_login">Enter Login</string>
     <string name="enter_email">Enter email</string>
     <string name="make_your_account">Make your account!</string>

@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.designspectrum.MainActivity
 import com.example.designspectrum.R
 import com.example.designspectrum.viewmodels.LoginViewModel
 
@@ -52,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
         tvLoginRegister.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
