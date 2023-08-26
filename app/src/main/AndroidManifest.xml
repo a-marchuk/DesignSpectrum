@@ -17,6 +17,33 @@
         android:theme="@style/Theme.KotlinApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MyOrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.InformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.informationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ShoppingCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CatalogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.OtherActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SignUpActivity"
             android:exported="false" />
         <activity

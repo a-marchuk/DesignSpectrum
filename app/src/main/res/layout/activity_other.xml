@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.OtherActivity"
+    android:background="@color/colorBackground">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="-652dp"
+            android:background="@color/grey_20" />
+
+        <TextView
+            android:id="@+id/tv_design_spectrum_other"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingStart="13dp"
+            android:text="Design Spectrum"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorSecondary"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_ENG_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="13dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:padding="10dp"
+            android:text="ENG"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorSecondary"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_UA_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="74dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:padding="10dp"
+            android:text="UA"
+            android:textAlignment="textEnd"
+            android:textColor="@color/grey_40"
+            android:textSize="16dp" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey_20" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation_bar"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_account_other"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:text="     Account"
+                android:paddingStart="30sp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                app:drawableStartCompat="@drawable/outline_person_2_24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/grey_20" />
+
+            <TextView
+                android:id="@+id/tv_orders_other"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:text="     My orders"
+                android:paddingStart="30sp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                app:drawableStartCompat="@drawable/outline_history_24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/grey_20" />
+
+
+            <TextView
+                android:id="@+id/tv_info_other"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:text="     Information"
+                android:paddingStart="30sp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                app:drawableStartCompat="@drawable/outline_info_24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/grey_20" />
+
+            <TextView
+                android:id="@+id/tv_settings_other"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:text="     Settings"
+                android:paddingStart="30sp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                app:drawableStartCompat="@drawable/outline_settings_suggest_24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/grey_20" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:foregroundGravity="bottom"
+        android:background="@color/white"
+        android:elevation="15dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/color_state"
+        app:itemTextColor="@color/color_state"
+
+        app:menu="@menu/menu_bottom_navigation_badge" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+</RelativeLayout>

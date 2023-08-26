@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="colorPrimary">#FFF098</color>
     <color name="colorSecondary">#FFB902</color>
     <color name="colorTertiary">#A75810</color>
@@ -8,5 +7,12 @@
     <color name="colorText">#171410</color>
     <color name="white">#FFFFFF</color>
 
-
+    <color name="grey_3">#f7f7f7</color>
+    <color name="grey_5">#f2f2f2</color>
+    <color name="grey_20">#cccccc</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="grey_40">#999999</color>
+    <color name="grey_60">#666666</color>
+    <color name="colorBlue">#1976D2</color>
+    <color name="red_500">#F44336</color>
 </resources>
