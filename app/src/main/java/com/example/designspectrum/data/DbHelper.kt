@@ -1,56 +1,93 @@
 package com.example.designspectrum.data
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.designspectrum.data.User
 
-class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
+class DbHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, "app", factory, 1) {
 
-
-    override fun onCreate(db: SQLiteDatabase?) {
-        val  query = "CREATE TABLE users (id INT PRIMARY KEY, login TEXT, email TEXT, password TEXT)"
-        db!!.execSQL(query)
+    override fun onCreate(db: SQLiteDatabase) {
+        val query = "CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, phoneNumber TEXT, country TEXT, gender TEXT)"
+        db.execSQL(query)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS users")
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        db.execSQL("DROP TABLE IF EXISTS users")
         onCreate(db)
     }
 
-    fun  addUser(user: User){
-        val values = ContentValues()
-        values.put("login", user.login)
-        values.put("email", user.email)
-        values.put("password", user.password)
+    fun addUser(user: User) {
+        val values = ContentValues().apply {
+            put("name", user.name)
+            put("email", user.email)
+            put("phoneNumber", user.phoneNumber)
+            put("country", user.country)
+            put("gender", user.gender)
+        }
 
-        val db = this.writableDatabase
-        db.insert("users", null,values)
-
-        db.close()
+        writableDatabase.use { db ->
+            db.insert("users", null, values)
+        }
     }
 
-    fun getUser(login: String, password: String):Boolean{
-        val db = this.readableDatabase
+    fun updateUser(user: User) {
+        val values = ContentValues().apply {
+            put("name", user.name)
+            put("email", user.email)
+            put("phoneNumber", user.phoneNumber)
+            put("country", user.country)
+            put("gender", user.gender)
+        }
 
-        val result = db.rawQuery("SELECT * FROM users WHERE login = '$login' AND password = '$password'",null)
+        val selection = "email = ?"
+        val selectionArgs = arrayOf(user.email)
 
-        return result.moveToFirst()
+        writableDatabase.use { db ->
+            db.update("users", values, selection, selectionArgs)
+        }
+    }
+
+
+    @SuppressLint("Range")
+    fun getUserByEmail(email: String): User? {
+        val columns = arrayOf("name", "email", "phoneNumber", "country", "gender")
+        val selection = "email = ?"
+        val selectionArgs = arrayOf(email)
+
+        readableDatabase.use { db ->
+            val cursor = db.query("users", columns, selection, selectionArgs, null, null, null)
+
+            var user: User? = null
+
+            if (cursor.moveToFirst()) {
+                val name = cursor.getString(cursor.getColumnIndex("name"))
+                val userEmail = cursor.getString(cursor.getColumnIndex("email"))
+                val phoneNumber = cursor.getString(cursor.getColumnIndex("phoneNumber"))
+                val country = cursor.getString(cursor.getColumnIndex("country"))
+                val gender = cursor.getString(cursor.getColumnIndex("gender"))
+
+                user = User(name, userEmail, phoneNumber, country, gender)
+            }
+
+            cursor.close()
+            return user
+        }
     }
 
     fun getCount(): Int {
-        val db = this.readableDatabase
+        readableDatabase.use { db ->
+            val result = db.rawQuery("SELECT COUNT(*) FROM users", null)
+            var count = 0
 
-        val result = db.rawQuery("SELECT COUNT(*) FROM users", null)
+            if (result.moveToFirst()) {
+                count = result.getInt(0)
+            }
 
-        var count = 0
-        if (result.moveToFirst()) {
-            count = result.getInt(0)
+            result.close()
+            return count
         }
-        result.close()
-
-        return count
     }
 }

@@ -164,12 +164,25 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
+                android:id="@+id/btn_save_settings_your_account"
+                android:text="Save settings"
+                android:textColor="@color/colorBackground"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/colorSecondary"
+                app:cornerRadius="20dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
                 android:id="@+id/btn_logout_other_your_account"
                 android:text="Log out from the account"
                 android:textColor="@color/colorBackground"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/colorSecondary"
                 app:cornerRadius="20dp"/>

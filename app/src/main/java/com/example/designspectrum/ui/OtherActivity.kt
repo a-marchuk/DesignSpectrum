@@ -11,12 +11,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class OtherActivity : AppCompatActivity() {
     private lateinit var navigationView: BottomNavigationView
 
-    lateinit var tvAccount: TextView
-    lateinit var tvMyOrders: TextView
-    lateinit var tvInformation: TextView
-    lateinit var tvSettings: TextView
-    lateinit var tvUA: TextView
-    lateinit var tvENG: TextView
+    private lateinit var tvAccount: TextView
+    private lateinit var tvMyOrders: TextView
+    private lateinit var tvInformation: TextView
+    private lateinit var tvCurrency: TextView
+    private lateinit var tvUA: TextView
+    private lateinit var tvENG: TextView
 
     private fun init(){
         navigationView = findViewById(R.id.navigation_bar)
@@ -24,7 +24,7 @@ class OtherActivity : AppCompatActivity() {
         tvAccount = findViewById(R.id.tv_account_other)
         tvMyOrders = findViewById(R.id.tv_orders_other)
         tvInformation = findViewById(R.id.tv_info_other)
-        tvSettings = findViewById(R.id.tv_settings_other)
+        tvCurrency = findViewById(R.id.tv_currency_other)
         tvUA = findViewById(R.id.tv_UA_other)
         tvENG = findViewById(R.id.tv_ENG_other)
     }
@@ -79,28 +79,24 @@ class OtherActivity : AppCompatActivity() {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
-            finish()
         }
 
         tvInformation.setOnClickListener {
             val intent = Intent(this, InformationActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
-            finish()
         }
 
         tvMyOrders.setOnClickListener {
             val intent = Intent(this, MyOrdersActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
-            finish()
         }
 
-        tvSettings.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
+        tvCurrency.setOnClickListener {
+            val intent = Intent(this, CurrencyActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
-            finish()
         }
     }
 

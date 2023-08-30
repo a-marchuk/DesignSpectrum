@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "592628553522",
+    "firebase_url": "https://design-spectrum-pet-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "design-spectrum-pet",
+    "storage_bucket": "design-spectrum-pet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592628553522:android:f05fbb2d9dea9c40ed692b",
+        "android_client_info": {
+          "package_name": "com.example.designspectrum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592628553522-gr1m7epqur7mgc8mn2qlk8p1rehv279b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMH-qyQNJlwPOV9hedkLi9lDtczSmaxtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592628553522-gr1m7epqur7mgc8mn2qlk8p1rehv279b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

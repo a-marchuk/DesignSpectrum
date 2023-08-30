@@ -156,10 +156,10 @@
                 android:background="@color/grey_20" />
 
             <TextView
-                android:id="@+id/tv_settings_other"
+                android:id="@+id/tv_currency_other"
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
-                android:text="     Settings"
+                android:text="     Currency"
                 android:paddingStart="30sp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
@@ -168,7 +168,7 @@
                 android:textColor="@color/colorText"
                 android:layout_marginBottom="10dp"
                 android:clickable="true"
-                app:drawableStartCompat="@drawable/outline_settings_suggest_24" />
+                app:drawableStartCompat="@drawable/outline_monetization_on_24" />
 
             <View
                 android:layout_width="match_parent"
