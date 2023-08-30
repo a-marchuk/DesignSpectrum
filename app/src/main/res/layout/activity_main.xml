@@ -42,6 +42,8 @@
                 android:drawableStart="@drawable/baseline_person_2_24"
                 android:padding="8dp"
                 android:hint="Email"
+                android:textColorHint="@color/grey_40"
+                android:textSize="18dp"
                 android:textColor="@color/colorText"
                 android:layout_marginTop="40dp"/>
 
@@ -53,9 +55,20 @@
                 android:drawableStart="@drawable/baseline_lock_24"
                 android:padding="8dp"
                 android:hint="Password"
+                android:textColorHint="@color/grey_40"
+                android:textSize="20dp"
                 android:textColor="@color/colorText"
                 android:inputType="textPassword"
                 android:layout_marginTop="30dp"/>
+
+            <CheckBox
+                android:id="@+id/showPasswordCheckBox_main"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Show password"
+                android:textColor="@color/grey_40"
+                android:shadowColor="@color/white"
+                android:textSize="16sp" />
 
             <Button
                 android:layout_width="match_parent"
@@ -65,7 +78,7 @@
                 android:textColor="@color/colorBackground"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorSecondary"
                 app:cornerRadius="20dp"/>
 

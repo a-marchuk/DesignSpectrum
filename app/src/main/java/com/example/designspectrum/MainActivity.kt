@@ -2,7 +2,9 @@ package com.example.designspectrum
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var edPassword: EditText
     private lateinit var btn_login: Button
     private lateinit var tv_signup: TextView
+    private lateinit var showPasswordCheckBox: CheckBox
 
     private lateinit var loginViewModel: LoginViewModel
 
@@ -26,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         tv_signup = findViewById(R.id.tv_signup)
         edEmail = findViewById(R.id.email_login)
         edPassword = findViewById(R.id.password_login)
+
+        showPasswordCheckBox = findViewById(R.id.showPasswordCheckBox_main)
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
     }
@@ -52,6 +57,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        showPasswordCheckBox.setOnCheckedChangeListener(){_, isChecked ->
+            if (isChecked) {
+                edPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            } else {
+                edPassword.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+            edPassword.setSelection(edPassword.text.length)
         }
 
     }

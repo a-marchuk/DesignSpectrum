@@ -6,14 +6,14 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.designspectrum.R
 
-class SettingsActivity : AppCompatActivity() {
+class CurrencyActivity : AppCompatActivity() {
     lateinit var imageButton: ImageButton
     private fun init() {
         imageButton = findViewById(R.id.imageButton_settings)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        setContentView(R.layout.activity_currency)
 
         init()
         imageButton.setOnClickListener {
@@ -22,5 +22,10 @@ class SettingsActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
             finish()
         }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(0, 0)
+        finish()
     }
 }

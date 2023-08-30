@@ -1,4 +1,4 @@
 package com.example.designspectrum.data
 
-class User(val login: String, val email: String,val password: String){
+class User (var name: String, val email: String,val phoneNumber: String, val country: String, val gender : String){
 }

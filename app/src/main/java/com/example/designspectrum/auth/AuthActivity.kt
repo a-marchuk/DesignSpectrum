@@ -1,14 +1,12 @@
 package com.example.designspectrum.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.designspectrum.data.DbHelper
-import com.example.designspectrum.ui.ItemsActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.designspectrum.MainActivity
 import com.example.designspectrum.R
 
@@ -35,22 +33,22 @@ class AuthActivity : AppCompatActivity() {
             if(login == "" || password=="")
                 Toast.makeText(this, "Not all include", Toast.LENGTH_LONG).show()
             else{
-
-                val db = DbHelper(this, null)
-                val isAuth = db.getUser(login, password)
-                val count = db.getCount()
-
-                if(isAuth){
-                    Toast.makeText(this, "User $login Authorisated count:$count", Toast.LENGTH_LONG).show()
-                    userLogin.text.clear()
-                    userPassword.text.clear()
-
-                    val intent = Intent(this, ItemsActivity::class.java)
-                    startActivity(intent)}
-                else
-                    Toast.makeText(this, "User $login NOT Authorisated", Toast.LENGTH_LONG).show()}
-
-
+//
+//                val db = DbHelper(this, null)
+//                val isAuth = db.getUser(login, password)
+//                val count = db.getCount()
+//
+//                if(isAuth){
+//                    Toast.makeText(this, "User $login Authorisated count:$count", Toast.LENGTH_LONG).show()
+//                    userLogin.text.clear()
+//                    userPassword.text.clear()
+//
+//                    val intent = Intent(this, ItemsActivity::class.java)
+//                    startActivity(intent)}
+//                else
+//                    Toast.makeText(this, "User $login NOT Authorisated", Toast.LENGTH_LONG).show()}
+//
+//
             }
         }
-}
+}}

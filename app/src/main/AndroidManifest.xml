@@ -5,6 +5,7 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="33" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -17,19 +18,13 @@
         android:theme="@style/Theme.KotlinApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.SettingsActivity"
+            android:name=".ui.CurrencyActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MyOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MyActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.InformationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.informationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.AccountActivity"

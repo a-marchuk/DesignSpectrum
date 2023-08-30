@@ -23,5 +23,9 @@ class InformationActivity : AppCompatActivity() {
             finish()
         }
     }
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(0, 0)
+        finish()
+    }
 }
