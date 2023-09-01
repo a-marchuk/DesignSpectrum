@@ -175,6 +175,22 @@
                 android:layout_height="1.5dp"
                 android:background="@color/grey_20" />
 
+            <TextView
+                android:id="@+id/tv_admin_settings_other"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:text="     Admin settings"
+                android:paddingStart="30sp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/outline_settings_suggest_24" />
+
         </LinearLayout>
 
     </ScrollView>

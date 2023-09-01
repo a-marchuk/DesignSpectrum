@@ -2,11 +2,13 @@ package com.example.designspectrum.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.designspectrum.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class OtherActivity : AppCompatActivity() {
     private lateinit var navigationView: BottomNavigationView
@@ -15,8 +17,11 @@ class OtherActivity : AppCompatActivity() {
     private lateinit var tvMyOrders: TextView
     private lateinit var tvInformation: TextView
     private lateinit var tvCurrency: TextView
+    private lateinit var tvAdminSettings: TextView
     private lateinit var tvUA: TextView
     private lateinit var tvENG: TextView
+
+    val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private fun init(){
         navigationView = findViewById(R.id.navigation_bar)
@@ -25,6 +30,7 @@ class OtherActivity : AppCompatActivity() {
         tvMyOrders = findViewById(R.id.tv_orders_other)
         tvInformation = findViewById(R.id.tv_info_other)
         tvCurrency = findViewById(R.id.tv_currency_other)
+        tvAdminSettings = findViewById(R.id.tv_admin_settings_other)
         tvUA = findViewById(R.id.tv_UA_other)
         tvENG = findViewById(R.id.tv_ENG_other)
     }
@@ -39,6 +45,10 @@ class OtherActivity : AppCompatActivity() {
         navigationViewClick()
         clickListeners()
         switchLanguage()
+
+        if (mAuth.currentUser?.email == "artemonplayyt@gmail.com") {
+            tvAdminSettings.visibility = View.VISIBLE
+        }
     }
 
     private fun navigationViewClick(){
@@ -95,6 +105,12 @@ class OtherActivity : AppCompatActivity() {
 
         tvCurrency.setOnClickListener {
             val intent = Intent(this, CurrencyActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+        }
+
+        tvAdminSettings.setOnClickListener {
+            val intent = Intent(this, AdminSettingsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
         }
