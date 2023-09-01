@@ -1,11 +1,11 @@
 package com.example.designspectrum.ui
 
-import androidx.appcompat.app.AppCompatActivity
+//import com.example.designspectrum.adapters.ItemsAdapter
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.designspectrum.R
-import com.example.designspectrum.adapters.ItemsAdapter
 import com.example.designspectrum.data.Item
 
 
@@ -25,6 +25,6 @@ class ItemsActivity : AppCompatActivity() {
 
 
         itemsList.layoutManager = LinearLayoutManager(this)
-        itemsList.adapter = ItemsAdapter(items, this)
+//        itemsList.adapter = ItemsAdapter(items, this)
     }
 }

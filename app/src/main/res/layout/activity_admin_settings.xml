@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AdminSettingsActivity"
+    android:background="@color/colorBackground">
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="-2dp"
+            android:layout_toEndOf="@+id/imageButton"
+            android:fontFamily="@font/montserrat_semibold"
+            android:padding="10dp"
+            android:paddingStart="13dp"
+            android:text="Administrator settings"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorText"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/circle_background"
+            app:srcCompat="@drawable/outline_arrow_circle_left_24"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_marginTop="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:gravity="center_horizontal"
+                android:text="Add new product"
+                android:textColor="@color/colorText"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/et_product_name_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Product name"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/et_product_description_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Product description"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name_admin_settings" />
+
+            <EditText
+                android:id="@+id/et_product_price_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Product price in UAH"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name_admin_settings" />
+
+            <EditText
+                android:id="@+id/et_product_category_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Product category"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name_admin_settings" />
+
+            <EditText
+                android:id="@+id/et_product_country_of_origin_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Product country of origin"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name_admin_settings" />
+
+            <EditText
+                android:id="@+id/et_quantity_in_stock_of_origin_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Quantity in stock"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name_admin_settings" />
+
+            <EditText
+                android:id="@+id/et_orders_quantity_of_origin_admin_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="Orders quantity"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColor="@color/colorText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name_admin_settings" />
+
+
+            <ImageView
+                android:id="@+id/iv_admin_settings"
+                android:layout_width="229dp"
+                android:layout_height="157dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/designspectrumlogo" />
+
+            <Button
+                android:id="@+id/btn_choose_admin_settings"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:text="Choose image" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save_admin_settings"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:onClick="onClickSave"
+                android:text="Save"
+                app:layout_constraintEnd_toEndOf="@+id/editTextEmail"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/editTextEmail"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ListView
+                android:id="@+id/itemslist_admin_settings"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="30dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

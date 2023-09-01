@@ -73,7 +73,7 @@ class AccountActivity : AppCompatActivity() {
         getData()
     }
 
-    fun getData(){
+    private fun getData(){
         accountViewModel.userName.observe(this, Observer { name ->
             edName.setText(name)
         })
