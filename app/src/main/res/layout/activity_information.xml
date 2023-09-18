@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AccountActivity"
+    tools:context=".ui.screens.old.AccountActivity"
     android:background="@color/colorBackground">
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -70,10 +70,9 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_info_1"
+                android:id="@+id/tv_info_project_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/relativeLayout"
                 android:layout_marginTop="2dp"
                 android:text="DesignSpectrum Furniture Store - PET Project"
                 android:textColor="@color/colorText"
@@ -81,6 +80,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_info_project_readme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -90,15 +90,17 @@
                 android:textStyle="italic" />
 
             <TextView
+                android:id="@+id/tv_info_overview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Overview"
                 android:textColor="@color/colorText"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_info_overview_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -108,15 +110,17 @@
                 android:textStyle="italic" />
 
             <TextView
+                android:id="@+id/tv_info_functionalities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Functionalities"
                 android:textColor="@color/colorText"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_info_functionalities_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -129,15 +133,17 @@
                 android:textStyle="italic" />
 
             <TextView
+                android:id="@+id/tv_info_authors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Author"
+                android:text="Authors"
                 android:textColor="@color/colorText"
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_info_authors_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"

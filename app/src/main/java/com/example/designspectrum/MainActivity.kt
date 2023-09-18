@@ -3,47 +3,31 @@ package com.example.designspectrum
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.designspectrum.ui.ShoppActivity
-import com.example.designspectrum.ui.SignUpActivity
+import com.example.designspectrum.databinding.ActivityMainBinding
+import com.example.designspectrum.ui.screens.ShoppActivity
+import com.example.designspectrum.ui.screens.SignUpActivity
 import com.example.designspectrum.viewmodels.LoginViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var edEmail: EditText
-    private lateinit var edPassword: EditText
-    private lateinit var btn_login: Button
-    private lateinit var tv_signup: TextView
-    private lateinit var showPasswordCheckBox: CheckBox
+    private lateinit var binding: ActivityMainBinding
 
     private lateinit var loginViewModel: LoginViewModel
-
-    private fun init() {
-        btn_login = findViewById(R.id.btn_login)
-        tv_signup = findViewById(R.id.tv_signup)
-        edEmail = findViewById(R.id.email_login)
-        edPassword = findViewById(R.id.password_login)
-
-        showPasswordCheckBox = findViewById(R.id.showPasswordCheckBox_main)
-
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-    }
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        init()
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        btn_login.setOnClickListener {
-            val email = edEmail.text.toString()
-            val password = edPassword.text.toString()
+
+        binding.btnLogin.setOnClickListener {
+            val email = binding.emailLogin.text.toString()
+            val password = binding.passwordLogin.text.toString()
             loginViewModel.loginUser(email, password) { success ->
                 if (success) {
                     showSigned()
@@ -53,20 +37,20 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        tv_signup.setOnClickListener {
+        binding.tvSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        showPasswordCheckBox.setOnCheckedChangeListener(){_, isChecked ->
+        binding.showPasswordCheckBoxMain.setOnCheckedChangeListener(){_, isChecked ->
             if (isChecked) {
-                edPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                binding.passwordLogin.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             } else {
-                edPassword.inputType =
+                binding.passwordLogin.inputType =
                     InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             }
-            edPassword.setSelection(edPassword.text.length)
+            binding.passwordLogin.setSelection(binding.passwordLogin.text.length)
         }
 
     }

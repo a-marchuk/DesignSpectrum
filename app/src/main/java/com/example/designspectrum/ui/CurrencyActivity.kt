@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.designspectrum.R
+import com.example.designspectrum.ui.screens.old.OtherActivity
 
 class CurrencyActivity : AppCompatActivity() {
     lateinit var imageButton: ImageButton

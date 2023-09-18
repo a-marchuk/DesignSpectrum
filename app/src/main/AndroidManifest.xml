@@ -18,10 +18,10 @@
         android:theme="@style/Theme.KotlinApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.ShowProductActivity"
+            android:name=".ui.screens.old.products.ShowProductActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ProductShowActivity"
+            android:name=".ui.screens.old.products.ProductShowActivity"
             android:exported="false" />
         <activity
             android:name=".ui.AdminSettingsActivity"
@@ -36,28 +36,28 @@
             android:name=".ui.InformationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.AccountActivity"
+            android:name=".ui.screens.old.AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ShoppingCartActivity"
+            android:name=".ui.screens.old.ShoppingCartActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CatalogActivity"
+            android:name=".ui.screens.old.CatalogActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.OtherActivity"
+            android:name=".ui.screens.old.OtherActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SignUpActivity"
+            android:name=".ui.screens.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ShoppActivity"
+            android:name=".ui.screens.ShoppActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ItemActivity"
+            android:name=".ui.screens.old.veryold.ItemActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ItemsActivity"
+            android:name=".ui.screens.old.veryold.ItemsActivity"
             android:exported="false" />
         <activity
             android:name=".auth.AuthActivity"

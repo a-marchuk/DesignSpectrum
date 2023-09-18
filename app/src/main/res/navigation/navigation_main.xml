@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/shoppFragment">
+    <fragment
+        android:id="@+id/shoppFragment"
+        android:name="com.example.designspectrum.ui.fragments.shopp.ShoppFragment"
+        android:label="fragment_shopp"
+        tools:layout="@layout/fragment_shopp" />
+    <fragment
+        android:id="@+id/otherAccountFragment"
+        android:name="com.example.designspectrum.ui.fragments.shopp.other.OtherAccountFragment"
+        android:label="fragment_other_account"
+        tools:layout="@layout/fragment_other_account" />
+    <fragment
+        android:id="@+id/otherInfoFragment"
+        android:name="com.example.designspectrum.ui.fragments.shopp.other.OtherInfoFragment"
+        android:label="fragment_other_info"
+        tools:layout="@layout/fragment_other_info" />
+    <fragment
+        android:id="@+id/otherMyOrdersFragment"
+        android:name="com.example.designspectrum.ui.fragments.shopp.other.OtherMyOrdersFragment"
+        android:label="fragment_other_my_orders"
+        tools:layout="@layout/fragment_other_my_orders" />
+</navigation>

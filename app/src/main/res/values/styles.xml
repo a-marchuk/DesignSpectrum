@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light">
-
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorTertiary">@color/colorTertiary</item>
-
-        <item name="buttonStyle">@style/ButtonStyle</item>
-
-        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="colorPrimary">@color/colorSecondary</item>
     </style>
 
 
-    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
-        <item name="android:background">@color/colorSecondary</item>
-        <item name="android:textColor">@color/colorText</item>
-        <!-- Додайте інші атрибути для кнопок -->
+
+    <style name="BottomNavigationStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">@drawable/navigation_bar</item>
+        <item name="android:elevation">15dp</item>
+        <item name="itemIconSize">32dp</item>
     </style>
 
-    <!-- Стиль для текстових полів -->
-    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:background">@color/colorSecondary</item>
-        <item name="android:textColor">@color/colorText</item>
-        <!-- Додайте інші атрибути для текстових полів -->
+
+    <style name="CheckboxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/checkbox_color_selector</item>
     </style>
 
 </resources>

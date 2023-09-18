@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_other_account_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.shopp.other.OtherAccountFragment">
+
+    <TableRow
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButton_account"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/circle_background"
+            app:srcCompat="@drawable/outline_arrow_circle_left_24"
+            tools:ignore="ContentDescription,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:padding="10dp"
+            android:text="Your account"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorText"
+            android:textSize="24sp" />
+    </TableRow>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="30dp"
+                android:text="Name"
+                android:textColor="@color/grey_40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_name_other_your_account"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingStart="30sp"
+                android:text=""
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="30sp"
+                android:text="Email"
+                android:textColor="@color/grey_40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_email_other_your_account"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingStart="30sp"
+                android:text=""
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="30sp"
+                android:text="Phone number"
+                android:textColor="@color/grey_40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_phone_number_other_your_account"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingStart="30sp"
+                android:text=""
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="30sp"
+                android:text="Country"
+                android:textColor="@color/grey_40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_country_other_your_account"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingStart="30sp"
+                android:text=""
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="30sp"
+                android:text="Gender"
+                android:textColor="@color/grey_40"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkbox_male_other_your_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:text="Male"
+                android:textSize="16sp"
+                android:theme="@style/CheckboxStyle"
+                android:textColor="@color/colorText" />
+
+            <CheckBox
+                android:id="@+id/checkbox_female_other_your_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:text="Female"
+                android:textSize="16sp"
+                android:textColor="@color/colorText" />
+
+            <Button
+                android:id="@+id/btn_save_settings_your_account"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="56dp"
+                android:backgroundTint="@color/colorSecondary"
+                android:text="Save settings"
+                android:textColor="@color/colorBackground"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/btn_logout_other_your_account"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorSecondary"
+                android:text="Log out from the account"
+                android:textColor="@color/colorBackground"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/btn_delete_account_other_your_account"
+                android:layout_width="243dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/colorSecondary"
+                android:text="Delete account"
+                android:textColor="@color/colorBackground"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

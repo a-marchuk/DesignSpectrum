@@ -11,7 +11,7 @@
 //import androidx.recyclerview.widget.RecyclerView
 //import com.example.designspectrum.R
 //import com.example.designspectrum.data.Product
-//import com.example.designspectrum.ui.ItemActivity
+//import com.example.designspectrum.ui.screens.old.veryold.ItemActivity
 //
 //
 //class ItemsAdapter(var products: List<Product>, var context: Context) : RecyclerView.Adapter<ItemsAdapter.MyViewHolder>(){
