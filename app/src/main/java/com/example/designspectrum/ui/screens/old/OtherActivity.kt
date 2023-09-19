@@ -7,10 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.designspectrum.R
-import com.example.designspectrum.ui.AdminSettingsActivity
-import com.example.designspectrum.ui.CurrencyActivity
-import com.example.designspectrum.ui.InformationActivity
-import com.example.designspectrum.ui.MyOrdersActivity
 import com.example.designspectrum.ui.screens.ShoppActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth

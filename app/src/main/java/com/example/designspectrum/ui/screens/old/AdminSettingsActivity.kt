@@ -1,4 +1,4 @@
-package com.example.designspectrum.ui
+package com.example.designspectrum.ui.screens.old
 
 import android.app.Activity
 import android.content.Intent
@@ -18,7 +18,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.designspectrum.R
 import com.example.designspectrum.data.Product
-import com.example.designspectrum.ui.screens.old.OtherActivity
 import com.example.designspectrum.ui.screens.old.products.ShowProductActivity
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot

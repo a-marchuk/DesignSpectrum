@@ -12,3 +12,6 @@ class Product(
 ) {
     constructor() : this("", "", 0, "", "", 0, 0, "")
 }
+
+data class ProductItem(val productName: String, val productImageResId: Int)
+

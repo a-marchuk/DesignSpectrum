@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.designspectrum.R
 import com.example.designspectrum.databinding.FragmentOtherBinding
-import com.example.designspectrum.ui.AdminSettingsActivity
+import com.example.designspectrum.ui.screens.old.AdminSettingsActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class OtherFragment : Fragment() {

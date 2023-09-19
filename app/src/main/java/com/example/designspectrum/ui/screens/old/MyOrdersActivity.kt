@@ -1,20 +1,20 @@
-package com.example.designspectrum.ui
+package com.example.designspectrum.ui.screens.old
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.designspectrum.R
-import com.example.designspectrum.ui.screens.old.OtherActivity
 
-class CurrencyActivity : AppCompatActivity() {
+class MyOrdersActivity : AppCompatActivity() {
     lateinit var imageButton: ImageButton
     private fun init() {
-        imageButton = findViewById(R.id.imageButton_settings)
+        imageButton = findViewById(R.id.imageButton_my_orders)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_currency)
+        setContentView(R.layout.activity_my_orders)
+
 
         init()
         imageButton.setOnClickListener {
@@ -27,6 +27,5 @@ class CurrencyActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(0, 0)
-        finish()
     }
 }
