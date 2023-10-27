@@ -1,7 +1,5 @@
 # DesignSpectrum - Furniture Store 
 
-**Hi, this is the README file for my furniture store project**
-
 ## Overview
 My project is aimed at creating a web application for a furniture store where users can find, browse, and buy different types of furniture.
 
