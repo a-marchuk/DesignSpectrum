@@ -17,4 +17,19 @@
         <item name="android:textColor">@color/checkbox_color_selector</item>
     </style>
 
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Change the text color -->
+        <item name="android:textColor">@color/colorText</item>
+
+        <!-- Change the hint text color -->
+        <item name="android:textColorHint">@color/colorText</item>
+
+        <!-- Change the search icon color -->
+        <item name="android:searchIcon">@color/colorText</item>
+
+        <!-- Change the clear icon color -->
+        <item name="android:closeIcon">@color/colorText</item>
+    </style>
+
+
 </resources>

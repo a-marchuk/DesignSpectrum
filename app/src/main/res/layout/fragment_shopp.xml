@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.shopp.ShoppFragment">
+    tools:context=".presentation.ui.fragments.shopp.ShoppFragment">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view_shopp"
@@ -26,9 +26,10 @@
         android:id="@+id/fragment_container_shopp"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/navigation_view_shopp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view_shopp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

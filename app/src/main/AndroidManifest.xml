@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".di.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -18,52 +19,49 @@
         android:theme="@style/Theme.KotlinApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.screens.old.products.ShowProductActivity"
+            android:name=".presentation.ui.screens.old.products.ShowProductActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.products.ProductShowActivity"
+            android:name=".presentation.ui.screens.old.products.ProductShowActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.AdminSettingsActivity"
+            android:name=".presentation.ui.screens.old.AdminSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.CurrencyActivity"
+            android:name=".presentation.ui.screens.old.CurrencyActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.MyOrdersActivity"
+            android:name=".presentation.ui.screens.old.MyOrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.InformationActivity"
+            android:name=".presentation.ui.screens.old.InformationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.AccountActivity"
+            android:name=".presentation.ui.screens.old.AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.ShoppingCartActivity"
+            android:name=".presentation.ui.screens.old.ShoppingCartActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.CatalogActivity"
+            android:name=".presentation.ui.screens.old.CatalogActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.OtherActivity"
+            android:name=".presentation.ui.screens.old.OtherActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.SignUpActivity"
+            android:name=".presentation.ui.screens.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.ShoppActivity"
+            android:name=".presentation.ui.screens.ShoppActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.veryold.ItemActivity"
+            android:name=".presentation.ui.screens.old.veryold.ItemActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.screens.old.veryold.ItemsActivity"
+            android:name=".presentation.ui.screens.old.veryold.ItemsActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.AuthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ui.screens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
