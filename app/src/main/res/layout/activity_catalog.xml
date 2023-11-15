@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".ui.screens.old.CatalogActivity">
+    tools:context=".presentation.ui.screens.old.CatalogActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_bar"
@@ -27,7 +27,7 @@
         tools:ignore="MissingConstraints" />
 
     <fragment
-        android:name="com.example.designspectrum.ui.fragments.shopp.catalog.CatalogFragment"
+        android:name="com.example.designspectrum.presentation.ui.fragments.shopp.catalog.CatalogFragment"
         android:id="@+id/main_fragment"
         android:layout_width="match_parent"
         android:layout_height="0.dp"

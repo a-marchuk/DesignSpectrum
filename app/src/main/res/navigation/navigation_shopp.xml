@@ -6,22 +6,22 @@
     app:startDestination="@id/maisonFragment">
     <fragment
         android:id="@+id/maisonFragment"
-        android:name="com.example.designspectrum.ui.fragments.shopp.maison.MaisonFragment"
+        android:name="com.example.designspectrum.presentation.ui.fragments.shopp.maison.MaisonFragment"
         android:label="fragment_maison"
         tools:layout="@layout/fragment_maison" />
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="com.example.designspectrum.ui.fragments.shopp.catalog.CatalogFragment"
+        android:name="com.example.designspectrum.presentation.ui.fragments.shopp.catalog.CatalogFragment"
         android:label="fragment_catalog"
         tools:layout="@layout/fragment_catalog" />
     <fragment
         android:id="@+id/shoppingCartFragment"
-        android:name="com.example.designspectrum.ui.fragments.shopp.shoppingcart.ShoppingCartFragment"
+        android:name="com.example.designspectrum.presentation.ui.fragments.shopp.shoppingcart.ShoppingCartFragment"
         android:label="fragment_shopping_cart"
         tools:layout="@layout/fragment_shopping_cart" />
     <fragment
         android:id="@+id/otherFragment"
-        android:name="com.example.designspectrum.ui.fragments.shopp.other.OtherFragment"
+        android:name="com.example.designspectrum.presentation.ui.fragments.shopp.other.OtherFragment"
         android:label="fragment_other"
         tools:layout="@layout/fragment_other" />
 </navigation>
