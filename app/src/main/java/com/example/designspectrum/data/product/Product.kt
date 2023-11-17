@@ -1,5 +1,7 @@
 package com.example.designspectrum.data.product
 
+import java.io.Serializable
+
 data class Product(
     var productName: String = "",
     var productDescription: String = "",
@@ -9,7 +11,7 @@ data class Product(
     var quantityInStock: Int = 0,
     var ordersQuantity: Int = 0,
     var productImageId: String = ""
-) {
+) :Serializable{
     constructor() : this("", "", 0, "", "", 0, 0, "")
 }
 

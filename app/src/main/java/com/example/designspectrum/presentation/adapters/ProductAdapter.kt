@@ -10,7 +10,10 @@ import com.example.designspectrum.R
 import com.example.designspectrum.data.product.Product
 import com.example.designspectrum.databinding.ItemInListBinding
 
-class ProductAdapter() : ListAdapter<Product, ProductAdapter.ItemViewHolder>(ProductDiffCallback()) {
+class ProductAdapter(
+    private val onClickListener: ProductAdapterOnClickInterface
+) : ListAdapter<Product, ProductAdapter.ItemViewHolder>(ProductDiffCallback()) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = ItemInListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,10 +23,6 @@ class ProductAdapter() : ListAdapter<Product, ProductAdapter.ItemViewHolder>(Pro
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val product = getItem(position)
         holder.bind(product)
-    }
-
-    fun submitProductList(products: List<Product>) {
-        submitList(products)
     }
 
     inner class ItemViewHolder(private val binding: ItemInListBinding) :
@@ -36,11 +35,13 @@ class ProductAdapter() : ListAdapter<Product, ProductAdapter.ItemViewHolder>(Pro
                     error(R.drawable.baseline_sync_disabled_24)
                     scale(Scale.FILL)
                 }
+                itemListImage.setOnClickListener{
+                    onClickListener.onItemClick(product)
+                }
                 itemListTitle.text = product.productName
                 itemListDesc.text = product.productDescription
                 itemListPrice.text = product.productPrice.toString()
             }
-
         }
     }
 }
