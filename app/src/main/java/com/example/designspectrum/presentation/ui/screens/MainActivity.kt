@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import com.example.designspectrum.databinding.ActivityMainBinding
 import com.example.designspectrum.presentation.viewmodels.LoginViewModel
@@ -14,9 +16,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var loginViewModel: LoginViewModel
+    private val splashScreenViewModel by viewModels<SplashScreenViewModel> ()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen().apply {
+            setKeepOnScreenCondition{
+                !splashScreenViewModel.isReady.value
+            }
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -76,11 +84,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {
-            showToast("Check your email for verifying")
+            showVerifyingToast()
         }
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    private fun showVerifyingToast() {
+        Toast.makeText(applicationContext, "Check your email for verifying", Toast.LENGTH_SHORT).show()
     }
 }

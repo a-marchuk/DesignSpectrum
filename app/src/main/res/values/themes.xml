@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Base.Theme.KotlinApp" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 
@@ -6,5 +6,10 @@
         <item name="android:statusBarColor">@color/design_default_color_background</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="backgroundColor">@color/colorBackground</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.KotlinApp</item>
     </style>
 </resources>

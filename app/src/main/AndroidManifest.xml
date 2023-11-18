@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="33" />
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        android:maxSdkVersion="34" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,8 +16,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.KotlinApp"
-        tools:targetApi="31">
+        android:theme="@style/Theme.App.Starting"
+        tools:targetApi="34">
         <activity
             android:name=".presentation.ui.screens.old.products.ShowProductActivity"
             android:exported="false" />
@@ -26,6 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.screens.old.AdminSettingsActivity"
+            android:theme="@style/Theme.KotlinApp"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.screens.old.CurrencyActivity"
@@ -50,9 +51,11 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.screens.SignUpActivity"
+            android:theme="@style/Theme.KotlinApp"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.screens.ShoppActivity"
+            android:theme="@style/Theme.KotlinApp"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.screens.old.veryold.ItemActivity"
@@ -62,7 +65,8 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.screens.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

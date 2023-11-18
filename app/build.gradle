@@ -62,8 +62,11 @@ dependencies {
 
     //Picasso Coil
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation("io.coil-kt:coil:2.5.0")
+    implementation "io.coil-kt:coil:2.5.0"
 
+    //SplashScreen
+
+    implementation "androidx.core:core-splashscreen:1.0.1"
     //Firebase
     implementation 'com.google.firebase:firebase-storage-ktx:20.3.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.3.0'
