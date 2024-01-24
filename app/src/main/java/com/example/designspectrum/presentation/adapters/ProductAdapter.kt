@@ -23,6 +23,10 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val product = getItem(position)
         holder.bind(product)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onItemClick(product)
+        }
     }
 
     inner class ItemViewHolder(private val binding: ItemInListBinding) :
@@ -34,9 +38,6 @@ class ProductAdapter(
                     placeholder(R.drawable.baseline_sync_24)
                     error(R.drawable.baseline_sync_disabled_24)
                     scale(Scale.FILL)
-                }
-                itemListImage.setOnClickListener{
-                    onClickListener.onItemClick(product)
                 }
                 itemListTitle.text = product.productName
                 itemListDesc.text = product.productDescription
