@@ -46,8 +46,8 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
     private fun observeProductsStateFlow(){
         viewLifecycleOwner.lifecycleScope.launch{
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.productStateFlow.collect { productList ->
-                    adapter?.submitList(productList)
+                viewModel.screenState.collect { maisonScreenState ->
+                    adapter?.submitList(maisonScreenState.products)
                 }
             }
         }

@@ -17,7 +17,7 @@ class ProductRepository(
     private val mDataBase: DatabaseReference,
     private val mStorageRef: StorageReference
 ) {
-    suspend fun getProducts(): Flow<List<Product>> = callbackFlow {
+    fun getProducts(): Flow<List<Product>> = callbackFlow {
         val productList = mutableListOf<Product>()
 
         val vListener = object : ValueEventListener {
@@ -43,7 +43,7 @@ class ProductRepository(
         }
     }
 
-    suspend fun saveProduct(product: Product) {
+    fun saveProduct(product: Product) {
         val id = mDataBase.push().key
         id?.let {
             mDataBase.child(id).setValue(product)
