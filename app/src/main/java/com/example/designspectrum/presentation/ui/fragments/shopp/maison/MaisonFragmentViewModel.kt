@@ -3,7 +3,6 @@ package com.example.designspectrum.presentation.ui.fragments.shopp.maison
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.designspectrum.data.news.News
-import com.example.designspectrum.data.news.NewsDto
 import com.example.designspectrum.data.news.NewsRepository
 import com.example.designspectrum.data.product.Product
 import com.example.designspectrum.data.product.ProductRepository
@@ -28,7 +27,7 @@ class MaisonFragmentViewModel @Inject constructor(
 
     private val newsFlow : MutableStateFlow<List<News>> = MutableStateFlow(emptyList())
 
-    val screenState : StateFlow<MaisonScreenState> = combine(productStateFlow,newsFlow){ products, news ->
+    val screenState : StateFlow<MaisonScreenState> = combine(productStateFlow, newsFlow){ products, news ->
         MaisonScreenState(products, news)
     }.stateIn(viewModelScope, SharingStarted.Lazily, MaisonScreenState.initialState)
 
@@ -40,12 +39,6 @@ class MaisonFragmentViewModel @Inject constructor(
         viewModelScope.launch {
             newsFlow.emit(newsRepository.getListNews())
         }
-    }
-}
-
-class NewsMapper @Inject constructor(){
-    fun map(newsDto: NewsDto): News {
-        return News(newsDto.imageURL, newsDto.title, newsDto.newsURL)
     }
 }
 

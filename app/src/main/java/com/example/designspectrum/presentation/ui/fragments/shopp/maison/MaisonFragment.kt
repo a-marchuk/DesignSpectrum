@@ -24,7 +24,7 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
 
     private lateinit var binding: FragmentMaisonBinding
     private val viewModel: MaisonFragmentViewModel by viewModels()
-    private var adapter: ProductAdapter? = null
+    private var productAdapter: ProductAdapter? = null
     private lateinit var navController: NavController
 
     override fun onCreateView(
@@ -40,27 +40,31 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
 
         navController = findNavController()
         initializeRecyclerView()
-        observeProductsStateFlow()
-
+        observeScreenState()
     }
-    private fun observeProductsStateFlow(){
-        viewLifecycleOwner.lifecycleScope.launch{
+
+    private fun observeScreenState() {
+        viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.screenState.collect { maisonScreenState ->
-                    adapter?.submitList(maisonScreenState.products)
+                viewModel.screenState.collect { state ->
+                    updateUI(state)
                 }
             }
         }
     }
 
+    private fun updateUI(state: MaisonScreenState) {
+        productAdapter?.submitList(state.products)
+    }
+
     //Initialize itemListMaison adapter
     private fun initializeRecyclerView() {
-        adapter = ProductAdapter(object : ProductAdapterOnClickInterface{
+        productAdapter = ProductAdapter(object : ProductAdapterOnClickInterface {
             override fun onItemClick(product: Product) {
                 navigateToProductFragment(product)
             }
         })
-        binding.itemListMaison.adapter=adapter
+        binding.itemListMaison.adapter = productAdapter
     }
 
     private fun navigateToProductFragment(product: Product) {
