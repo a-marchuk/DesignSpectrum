@@ -15,13 +15,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ProductModule {
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideDatabaseReference() : DatabaseReference{
         return FirebaseDatabase.getInstance().getReference("Products")
     }
-    @Singleton
     @Provides
+    @Singleton
     fun provideStorageReference() : StorageReference{
         return FirebaseStorage.getInstance().getReference("Products images")
     }

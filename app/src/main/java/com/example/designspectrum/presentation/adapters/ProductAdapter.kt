@@ -11,7 +11,7 @@ import com.example.designspectrum.data.product.Product
 import com.example.designspectrum.databinding.ItemInListBinding
 
 class ProductAdapter(
-    private val onClickListener: ProductAdapterOnClickInterface
+    private val onClickListener: ProductAdapterOnClickInterface,
 ) : ListAdapter<Product, ProductAdapter.ItemViewHolder>(ProductDiffCallback()) {
 
 

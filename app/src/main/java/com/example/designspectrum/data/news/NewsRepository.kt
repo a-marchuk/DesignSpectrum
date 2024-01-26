@@ -1,7 +1,7 @@
 package com.example.designspectrum.data.news
 
 import android.util.Log
-import com.example.designspectrum.data.api.newsApi.ApiResponse
+import com.example.designspectrum.data.api.newsApi.NewsApiResponse
 import com.example.designspectrum.data.api.newsApi.NewsApiService
 import com.example.designspectrum.utils.Constants
 import retrofit2.Response
@@ -14,14 +14,14 @@ class NewsRepository @Inject constructor(
 
     suspend fun getListNews(): List<News> {
         return try {
-            when (val apiResponse: ApiResponse<NewsResponse> = getNewsFromApi("ukraine")) {
-                is ApiResponse.Success -> {
-                    val newsDtoList = apiResponse.data.articles.map { it.toNewsDto() }
+            when (val newsApiResponse: NewsApiResponse<NewsResponse> = getNewsFromApi("ukraine")) {
+                is NewsApiResponse.Success -> {
+                    val newsDtoList = newsApiResponse.data.articles.map { it.toNewsDto() }
                     Log.e("API Response", "Response success")
                     return newsDtoList.take(5).map { newItem -> mapper.map(newItem) }
                 }
-                is ApiResponse.Error -> {
-                    handleApiError(apiResponse.errorMessage)
+                is NewsApiResponse.Error -> {
+                    handleApiError(newsApiResponse.errorMessage)
                     emptyList()
                 }
             }
@@ -43,16 +43,16 @@ class NewsRepository @Inject constructor(
         Log.e("getListNews", "Error: ${throwable.message}", throwable)
     }
 
-    private suspend fun getNewsFromApi(query: String): ApiResponse<NewsResponse> {
+    private suspend fun getNewsFromApi(query: String): NewsApiResponse<NewsResponse> {
         return runCatching {
-            val response: Response<NewsResponse> = newsApiService.getNews(query, Constants.API_KEY)
+            val response: Response<NewsResponse> = newsApiService.getNews(query, Constants.NEWS_API_KEY)
             if (response.isSuccessful) {
-                ApiResponse.Success(response.body() ?: NewsResponse("", 0, emptyList()))
+                NewsApiResponse.Success(response.body() ?: NewsResponse("", 0, emptyList()))
             } else {
-                ApiResponse.Error("API request failed: ${response.code()}")
+                NewsApiResponse.Error("API request failed: ${response.code()}")
             }
         }.getOrElse {
-            ApiResponse.Error(it.localizedMessage ?: "Unknown error")
+            NewsApiResponse.Error(it.localizedMessage ?: "Unknown error")
         }
     }
 }
