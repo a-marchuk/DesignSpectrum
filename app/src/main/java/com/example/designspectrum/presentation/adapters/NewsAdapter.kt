@@ -10,7 +10,9 @@ import com.example.designspectrum.R
 import com.example.designspectrum.data.news.News
 import com.example.designspectrum.databinding.NewsItemInListBinding
 
-class NewsAdapter :
+class NewsAdapter(
+    private val onClickListener: NewsAdapterOnClickInterface
+) :
     ListAdapter<News, NewsAdapter.ItemViewHolder>(NewsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -21,6 +23,10 @@ class NewsAdapter :
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val news = getItem(position)
         holder.bind(news)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onItemClick(news)
+        }
     }
 
     inner class ItemViewHolder(private val binding: NewsItemInListBinding) :

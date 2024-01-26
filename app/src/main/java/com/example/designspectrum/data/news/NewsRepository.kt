@@ -1,48 +1,62 @@
 package com.example.designspectrum.data.news
 
+import android.util.Log
 import com.example.designspectrum.data.api.newsApi.ApiResponse
 import com.example.designspectrum.data.api.newsApi.NewsApiService
 import com.example.designspectrum.utils.Constants
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import retrofit2.Response
 import javax.inject.Inject
 
 class NewsRepository @Inject constructor(
     private val mapper: NewsMapper,
     private val newsApiService: NewsApiService
-    ){
-    suspend fun getListNews(): List<News> = withContext(Dispatchers.IO) {
-        try {
-            when (val apiResponse: ApiResponse<NewsResponse> = getNewsFromApi("furniture")) {
+) {
+
+    suspend fun getListNews(): List<News> {
+        return try {
+            when (val apiResponse: ApiResponse<NewsResponse> = getNewsFromApi("ukraine")) {
                 is ApiResponse.Success -> {
                     val newsDtoList = apiResponse.data.articles.map { it.toNewsDto() }
-                    return@withContext newsDtoList.map { newItem -> mapper.map(newItem) }
+                    Log.e("API Response", "Response success")
+                    return newsDtoList.take(5).map { newItem -> mapper.map(newItem) }
                 }
                 is ApiResponse.Error -> {
-                    return@withContext emptyList()
+                    handleApiError(apiResponse.errorMessage)
+                    emptyList()
                 }
             }
         } catch (e: Exception) {
-            return@withContext emptyList()
+            handleExceptionError(e)
+            emptyList()
         }
     }
 
-    private fun getNewsFromApi(query: String): ApiResponse<NewsResponse> {
-        return try {
-            val response: Response<NewsResponse> =
-                newsApiService.getNews(query, Constants.API_KEY)
+    private fun handleApiError(errorData: String) {
+        if (errorData == "apiKeyMissing") {
+            Log.e("API Error", "API Key is missing")
+        } else {
+            Log.e("API Error", "Unknown error: $errorData")
+        }
+    }
+
+    private fun handleExceptionError(throwable: Throwable) {
+        Log.e("getListNews", "Error: ${throwable.message}", throwable)
+    }
+
+    private suspend fun getNewsFromApi(query: String): ApiResponse<NewsResponse> {
+        return runCatching {
+            val response: Response<NewsResponse> = newsApiService.getNews(query, Constants.API_KEY)
             if (response.isSuccessful) {
                 ApiResponse.Success(response.body() ?: NewsResponse("", 0, emptyList()))
             } else {
-                ApiResponse.Error("API request failed")
+                ApiResponse.Error("API request failed: ${response.code()}")
             }
-        } catch (e: Exception) {
-            ApiResponse.Error(e.localizedMessage ?: "Unknown error")
+        }.getOrElse {
+            ApiResponse.Error(it.localizedMessage ?: "Unknown error")
         }
     }
-
 }
+
 
 
 

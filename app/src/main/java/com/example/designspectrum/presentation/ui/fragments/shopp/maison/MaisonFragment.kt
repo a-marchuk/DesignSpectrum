@@ -1,5 +1,7 @@
 package com.example.designspectrum.presentation.ui.fragments.shopp.maison
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +14,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.designspectrum.R
+import com.example.designspectrum.data.news.News
 import com.example.designspectrum.data.product.Product
 import com.example.designspectrum.databinding.FragmentMaisonBinding
+import com.example.designspectrum.presentation.adapters.NewsAdapter
+import com.example.designspectrum.presentation.adapters.NewsAdapterOnClickInterface
 import com.example.designspectrum.presentation.adapters.ProductAdapter
 import com.example.designspectrum.presentation.adapters.ProductAdapterOnClickInterface
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +29,7 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
 
     private lateinit var binding: FragmentMaisonBinding
     private val viewModel: MaisonFragmentViewModel by viewModels()
+    private var newsAdapter : NewsAdapter? = null
     private var productAdapter: ProductAdapter? = null
     private lateinit var navController: NavController
 
@@ -54,17 +60,30 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
     }
 
     private fun updateUI(state: MaisonScreenState) {
+        newsAdapter?.submitList(state.news)
         productAdapter?.submitList(state.products)
     }
 
-    //Initialize itemListMaison adapter
     private fun initializeRecyclerView() {
-        productAdapter = ProductAdapter(object : ProductAdapterOnClickInterface {
-            override fun onItemClick(product: Product) {
-                navigateToProductFragment(product)
-            }
-        })
-        binding.itemListMaison.adapter = productAdapter
+        with(binding){
+            newsAdapter = NewsAdapter(object : NewsAdapterOnClickInterface{
+                override fun onItemClick(news: News) {
+                    openBrowser(news.newsURL)
+                }
+            })
+            productAdapter = ProductAdapter(object : ProductAdapterOnClickInterface {
+                override fun onItemClick(product: Product) {
+                    navigateToProductFragment(product)
+                }
+            })
+            newsListMaison.adapter = newsAdapter
+            itemListMaison.adapter = productAdapter
+        }
+
+    }
+    fun openBrowser(url : String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
     }
 
     private fun navigateToProductFragment(product: Product) {

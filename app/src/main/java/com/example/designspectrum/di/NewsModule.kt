@@ -15,16 +15,14 @@ import javax.inject.Singleton
 object NewsApiModule {
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
-        return Retrofit.Builder()
+    fun provideRetrofit(): Retrofit =
+        Retrofit.Builder()
             .baseUrl(NEWS_API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
 
     @Provides
     @Singleton
-    fun provideNewsApiService(retrofit: Retrofit): NewsApiService {
-        return retrofit.create(NewsApiService::class.java)
-    }
+    fun provideNewsApiService(retrofit: Retrofit): NewsApiService =
+        retrofit.create(NewsApiService::class.java)
 }
