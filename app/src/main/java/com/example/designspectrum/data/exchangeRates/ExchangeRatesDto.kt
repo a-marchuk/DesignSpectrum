@@ -1,12 +1,15 @@
-package com.example.designspectrum.data.currency
+package com.example.designspectrum.data.exchangeRates
+
+import com.google.gson.annotations.SerializedName
 
 data class CurrencyDto(
-    val usd : Double,
-    val eur : Double,
-    val gbp: Double
+    val usd: Double?,
+    val eur: Double?,
+    val gbp: Double?
 )
 data class CurrencyResponse(
     val base_code: String,
+    @SerializedName("conversion_rates")
     val selectedConversionRates: SelectedConversionRates,
     val documentation: String,
     val result: String,
@@ -18,9 +21,9 @@ data class CurrencyResponse(
 )
 
 data class SelectedConversionRates(
-    val USD: Double,
-    val EUR: Double,
-    val GBP: Double
+    val USD: Double? = null,
+    val EUR: Double? = null,
+    val GBP: Double? = null
 ) {
     fun toCurrencyDto(): CurrencyDto{
         return CurrencyDto(

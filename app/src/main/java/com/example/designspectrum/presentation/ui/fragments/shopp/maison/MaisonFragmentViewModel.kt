@@ -2,8 +2,8 @@ package com.example.designspectrum.presentation.ui.fragments.shopp.maison
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.designspectrum.data.currency.Currency
-import com.example.designspectrum.data.currency.CurrencyRepository
+import com.example.designspectrum.data.exchangeRates.ExchangeRates
+import com.example.designspectrum.data.exchangeRates.ExchangeRatesRepository
 import com.example.designspectrum.data.news.News
 import com.example.designspectrum.data.news.NewsRepository
 import com.example.designspectrum.data.product.Product
@@ -21,7 +21,7 @@ import javax.inject.Inject
 class MaisonFragmentViewModel @Inject constructor(
     private val productRepository: ProductRepository,
     private val  newsRepository: NewsRepository,
-    private val currencyRepository: CurrencyRepository
+    private val exchangeRatesRepository: ExchangeRatesRepository
 ) : ViewModel() {
 
     private val productStateFlow: StateFlow<List<Product>> =
@@ -30,15 +30,17 @@ class MaisonFragmentViewModel @Inject constructor(
 
     private val newsFlow : MutableStateFlow<List<News>> = MutableStateFlow(emptyList())
 
-    private val currencyExchangeFlow: MutableStateFlow<Currency> =
-        MutableStateFlow(Currency(0.0,0.0,0.0))
+    private val exchangeRatesExchangeFlow: MutableStateFlow<ExchangeRates> =
+        MutableStateFlow(ExchangeRates(0.0,0.0,0.0))
 
-    val screenState : StateFlow<MaisonScreenState> = combine(productStateFlow, newsFlow, currencyExchangeFlow){ products, news, exchangeRates->
+    val screenState : StateFlow<MaisonScreenState> = combine(productStateFlow, newsFlow, exchangeRatesExchangeFlow){ products, news, exchangeRates->
+//        products.forEach { it.productPrice * cuurencyExchangeRate }
         MaisonScreenState(products, news, exchangeRates)
     }.stateIn(viewModelScope, SharingStarted.Lazily, MaisonScreenState.initialState)
 
     init {
         getNews()
+        getExchangeRates()
     }
 
     private fun getNews(){
@@ -49,7 +51,9 @@ class MaisonFragmentViewModel @Inject constructor(
 
     private fun getExchangeRates(){
         viewModelScope.launch {
-            currencyExchangeFlow.emit(currencyRepository.getExchangeRate())
+            exchangeRatesExchangeFlow.emit(
+                exchangeRatesRepository.getExchangeRates()
+            )
         }
     }
 }
@@ -57,9 +61,9 @@ class MaisonFragmentViewModel @Inject constructor(
 data class MaisonScreenState (
     val products : List<Product>,
     val news: List<News>,
-    val exchangeRates : Currency
+    val exchangeRates : ExchangeRates
 ){
-    companion object {val initialState = MaisonScreenState(emptyList(), emptyList(), Currency(0.0,0.0,0.0))}
+    companion object {val initialState = MaisonScreenState(emptyList(), emptyList(), ExchangeRates(0.0,0.0,0.0))}
 }
 
 

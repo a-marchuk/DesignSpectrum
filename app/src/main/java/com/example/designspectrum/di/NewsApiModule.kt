@@ -1,28 +1,31 @@
 package com.example.designspectrum.di
 
-import com.example.designspectrum.data.api.currencyApi.CurrencyApiService
-import com.example.designspectrum.utils.Constants
+import com.example.designspectrum.data.api.newsApi.NewsApiService
+import com.example.designspectrum.utils.Constants.Companion.NEWS_API_BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object CurrencyModule {
+object NewsApiModule {
+
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit =
+    @Named("NewsApiRetrofit")
+    fun provideNewsApiRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(Constants.EXCHANGE_RATE_BASE_URL)
+            .baseUrl(NEWS_API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
     @Provides
     @Singleton
-    fun provideCurrencyApiService(retrofit: Retrofit): CurrencyApiService =
-        retrofit.create(CurrencyApiService::class.java)
+    fun provideNewsApiService(@Named("NewsApiRetrofit") retrofit: Retrofit): NewsApiService =
+        retrofit.create(NewsApiService::class.java)
 }
