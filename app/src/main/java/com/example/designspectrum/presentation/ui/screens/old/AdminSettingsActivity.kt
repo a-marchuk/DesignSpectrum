@@ -158,13 +158,13 @@ class AdminSettingsActivity : AppCompatActivity() {
         val id = mDataBase.push().key
         val productName = editTextProductName.text.toString()
         val productDescription = editTextProductDescription.text.toString()
-        val productPrice = editTextProductPrice.text.toString().toIntOrNull() ?: 0
+        val productPrice = editTextProductPrice.text.toString().toDoubleOrNull() ?: 0.0
         val productCategory = editTextProductCategory.text.toString()
         val productCountry = editTextProductCountryOfOrigin.text.toString()
         val quantityInStock = editTextQuantityInStock.text.toString().toIntOrNull() ?: 0
         val ordersQuantity = editTextOrdersQuantity.text.toString().toIntOrNull() ?: 0
 
-        if (productName.isNotEmpty() && productDescription.isNotEmpty() && (productPrice > 0) &&
+        if (productName.isNotEmpty() && productDescription.isNotEmpty() && (productPrice > 0.0) &&
             productCategory.isNotEmpty() && productCountry.isNotEmpty() && (quantityInStock > 0) && (ordersQuantity >= 0)
         ) {
 

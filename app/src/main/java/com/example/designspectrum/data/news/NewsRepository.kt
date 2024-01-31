@@ -14,7 +14,7 @@ class NewsRepository @Inject constructor(
 
     suspend fun getListNews(): List<News> {
         return try {
-            when (val newsApiResponse: NewsApiResponse<NewsResponse> = getNewsFromApi("ukraine")) {
+            when (val newsApiResponse: NewsApiResponse<NewsResponse> = getNewsFromApi("Winter")) {
                 is NewsApiResponse.Success -> {
                     val newsDtoList = newsApiResponse.data.articles.map { it.toNewsDto() }
                     Log.e("API Response", "Response success")

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.designspectrum.R
 import com.example.designspectrum.databinding.FragmentOtherBinding
+import com.example.designspectrum.presentation.ui.fragments.other.OtherCurrencyFragment
 import com.example.designspectrum.presentation.ui.screens.old.AdminSettingsActivity
 import com.google.firebase.auth.FirebaseAuth
 
