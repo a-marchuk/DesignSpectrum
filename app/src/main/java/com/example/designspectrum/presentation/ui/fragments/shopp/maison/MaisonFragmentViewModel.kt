@@ -23,7 +23,7 @@ class MaisonFragmentViewModel @Inject constructor(
     private val productRepository: ProductRepository,
     private val  newsRepository: NewsRepository,
     private val exchangeRatesRepository: ExchangeRatesRepository,
-    private val selectedRadioButtonDataStoreManager: SelectedRadioButtonDataStoreManager
+    private val selectedRadioButtonDataStoreManager: SelectedRadioButtonDataStoreManager,
 ) : ViewModel() {
 
     private val productStateFlow: StateFlow<List<Product>> =

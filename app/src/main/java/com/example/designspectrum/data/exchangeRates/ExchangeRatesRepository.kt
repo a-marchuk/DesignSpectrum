@@ -3,23 +3,36 @@ package com.example.designspectrum.data.exchangeRates
 import android.util.Log
 import com.example.designspectrum.data.api.currencyApi.CurrencyApiResponse
 import com.example.designspectrum.data.api.currencyApi.ExchangeRateApiService
+import kotlinx.coroutines.flow.first
 import retrofit2.Response
 import javax.inject.Inject
 
 class ExchangeRatesRepository @Inject constructor(
     private val exchangeRatesMapper: ExchangeRatesMapper,
-    private val exchangeRateApiService: ExchangeRateApiService
+    private val exchangeRateApiService: ExchangeRateApiService,
+    private val exchangeRatesDataStoreManager: ExchangeRatesDataStoreManager
 ) {
 
     suspend fun getExchangeRates(): ExchangeRates {
+        val storedRates = exchangeRatesDataStoreManager.exchangeRatesFlow.first()
+
+        return if (storedRates.areAllZero()) {
+            fetchAndStoreExchangeRates()
+        } else {
+            storedRates
+        }
+    }
+
+    private suspend fun fetchAndStoreExchangeRates(): ExchangeRates {
         return try {
             when (val currencyApiResponse: CurrencyApiResponse<CurrencyResponse> = getCurrencyRateFromApi()) {
                 is CurrencyApiResponse.Success -> {
                     val selectedConversionRates = currencyApiResponse.data.selectedConversionRates
-                    run {
-                        Log.e("Exchange Response", "Response success")
-                        exchangeRatesMapper.map(selectedConversionRates.toCurrencyDto())
-                    }
+                    val exchangeRates = exchangeRatesMapper.map(selectedConversionRates.toCurrencyDto())
+
+                    exchangeRatesDataStoreManager.saveExchangeRates(exchangeRates)
+
+                    exchangeRates
                 }
                 is CurrencyApiResponse.Error -> {
                     Log.e("Exchange Response", "Response error: ${currencyApiResponse.errorMessage}")
