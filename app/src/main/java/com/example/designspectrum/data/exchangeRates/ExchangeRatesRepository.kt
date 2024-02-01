@@ -23,7 +23,7 @@ class ExchangeRatesRepository @Inject constructor(
         }
     }
 
-    private suspend fun fetchAndStoreExchangeRates(): ExchangeRates {
+    suspend fun fetchAndStoreExchangeRates(): ExchangeRates {
         return try {
             when (val currencyApiResponse: CurrencyApiResponse<CurrencyResponse> = getCurrencyRateFromApi()) {
                 is CurrencyApiResponse.Success -> {
@@ -31,7 +31,7 @@ class ExchangeRatesRepository @Inject constructor(
                     val exchangeRates = exchangeRatesMapper.map(selectedConversionRates.toCurrencyDto())
 
                     exchangeRatesDataStoreManager.saveExchangeRates(exchangeRates)
-
+                    Log.e("Exchange Response", "$selectedConversionRates")
                     exchangeRates
                 }
                 is CurrencyApiResponse.Error -> {

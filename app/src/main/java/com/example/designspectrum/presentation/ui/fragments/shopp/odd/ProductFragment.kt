@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.designspectrum.R
-import com.example.designspectrum.data.product.Product
+import com.example.designspectrum.data.product.UIProduct
 import com.example.designspectrum.databinding.FragmentProductBinding
 
 class ProductFragment : Fragment(R.layout.fragment_product){
@@ -29,7 +29,7 @@ class ProductFragment : Fragment(R.layout.fragment_product){
         super.onViewCreated(view, savedInstanceState)
 
 
-        val product = args.product
+        val product = args.uiproduct
         setInfo(product)
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
@@ -38,7 +38,7 @@ class ProductFragment : Fragment(R.layout.fragment_product){
     }
 
 
-    private fun setInfo(product: Product) {
+    private fun setInfo(product: UIProduct) {
         with(binding) {
             with(product) {
                 imageViewProductFragment.load(product.productImageId) {

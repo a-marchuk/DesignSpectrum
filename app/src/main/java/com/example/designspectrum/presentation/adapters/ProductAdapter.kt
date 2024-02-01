@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.size.Scale
 import com.example.designspectrum.R
-import com.example.designspectrum.data.product.Product
+import com.example.designspectrum.data.product.UIProduct
 import com.example.designspectrum.databinding.ItemInListBinding
 
 class ProductAdapter(
     private val onClickListener: ProductAdapterOnClickInterface,
-) : ListAdapter<Product, ProductAdapter.ItemViewHolder>(ProductDiffCallback()) {
+) : ListAdapter<UIProduct, ProductAdapter.ItemViewHolder>(UIProductDiffCallback()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -31,7 +31,7 @@ class ProductAdapter(
 
     inner class ItemViewHolder(private val binding: ItemInListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(product: Product) {
+        fun bind(product: UIProduct) {
             with(binding){
                 itemListImage.load(product.productImageId){
                     crossfade(true)
@@ -41,7 +41,7 @@ class ProductAdapter(
                 }
                 itemListTitle.text = product.productName
                 itemListDesc.text = product.productDescription
-                itemListPrice.text = product.productPrice.toString()
+                itemListPrice.text = product.productPrice
             }
         }
     }

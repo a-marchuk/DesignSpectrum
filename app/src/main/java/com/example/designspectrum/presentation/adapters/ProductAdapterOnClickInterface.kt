@@ -1,7 +1,7 @@
 package com.example.designspectrum.presentation.adapters
 
-import com.example.designspectrum.data.product.Product
+import com.example.designspectrum.data.product.UIProduct
 
 interface ProductAdapterOnClickInterface {
-    fun onItemClick(product: Product)
+    fun onItemClick(product: UIProduct)
 }

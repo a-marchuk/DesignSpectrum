@@ -16,7 +16,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.designspectrum.R
 import com.example.designspectrum.data.news.News
-import com.example.designspectrum.data.product.Product
+import com.example.designspectrum.data.product.UIProduct
 import com.example.designspectrum.databinding.FragmentMaisonBinding
 import com.example.designspectrum.presentation.adapters.NewsAdapter
 import com.example.designspectrum.presentation.adapters.NewsAdapterOnClickInterface
@@ -55,6 +55,11 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.screenState.collect { state ->
+                    Log.d("MaisonFragment", "observeScreenState: ${viewModel.hashCode()}")
+                    Log.d("MaisonFragment", "observeScreenState: ${this@MaisonFragment.hashCode()}")
+                    state.products.forEach {
+                        Log.d("MaisonFragment", "observeScreenState: $it")
+                    }
                     updateUI(state)
                 }
             }
@@ -74,7 +79,7 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
                 }
             })
             productAdapter = ProductAdapter(object : ProductAdapterOnClickInterface {
-                override fun onItemClick(product: Product) {
+                override fun onItemClick(product: UIProduct) {
                     navigateToProductFragment(product)
                 }
             })
@@ -88,7 +93,7 @@ class MaisonFragment : Fragment(R.layout.fragment_maison) {
         startActivity(browserIntent)
     }
 
-    private fun navigateToProductFragment(product: Product) {
+    private fun navigateToProductFragment(product: UIProduct) {
         navController.navigate(MaisonFragmentDirections.actionMaisonFragmentToProductFragment(product))
     }
 }

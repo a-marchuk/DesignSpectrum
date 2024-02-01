@@ -34,7 +34,7 @@
         android:label="fragment_product"
         tools:layout="@layout/fragment_product" >
         <argument
-            android:name="product"
-            app:argType="com.example.designspectrum.data.product.Product"/>
+            android:name="uiproduct"
+            app:argType="com.example.designspectrum.data.product.UIProduct"/>
     </fragment>
 </navigation>

@@ -10,7 +10,9 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import com.example.designspectrum.databinding.ActivityMainBinding
 import com.example.designspectrum.presentation.viewmodels.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-
+        splashScreenViewModel.initExchangeRates()
 
         binding.btnLogin.setOnClickListener {
             val email = binding.emailLogin.text.toString()
